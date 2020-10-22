@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calcul</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+
+</head>
+<body>
+
+	<div class="container">
+		  <div class="form-group">
+		    <label for="exampleInputEmail1">Nombre 1</label>
+		    <input type="text" class="form-control" id="el_1">
+		  </div>
+
+		  <div class="form-group">
+		    <label for="exampleInputEmail1">Nombre 2 </label>
+		    <input type="text" class="form-control" id="el_2">
+		  </div>
+
+		  <div class="form-group">
+		    <label >Nombre 3</label>
+		    <input type="text" class="form-control" id="el_3">
+		  </div>
+
+		  <div class="form-group">
+		    <label >Nombre 4</label>
+		    <input type="text" class="form-control" id="el_4">
+		  </div>
+
+		  <div class="form-group">
+		    <label>Total</label>
+		    <input type="button" class="form-control" id="somme">
+		  </div>
+	</div>
+
+	<script type="text/javascript">
+		var resultat = document.querySelector('#somme');
+
+		var liste_input = document.querySelectorAll("input[type='text']");
+
+		liste_input.forEach(function (test) {
+		//console.log(test);
+			test.addEventListener('keyup', sum_elements);
+		})
+
+		function sum_elements() {
+		var calcul = 0;
+			
+			for (var i =1; i <= liste_input.length; i++) {
+				var element = document.getElementById('el_'+i);
+				if (element.value !='' && !isNaN(element.value)) {
+				 calcul += parseInt(element.value);
+				}
+			}
+			resultat.value = calcul;
+		}
+	</script>
+
+</body>
+</html>
